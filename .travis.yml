@@ -19,6 +19,7 @@ install:
 
 before_script:
   - phpenv config-add php_error_reporting.ini
+  - php fail.php
   - docker pull statonlab/tripal2
   - psql -c "create database test_db encoding 'utf-8';" -U postgres
   - psql -c "alter role postgres with password 'dbpass';" -U postgres
