@@ -28,7 +28,6 @@ before_script:
   # Set additional environment variables
   - export PATH="$HOME/.config/composer/vendor/bin:$PATH"
   - export DRUPAL_ROOT="$(pwd)/drupal"
-  - echo 'ini_set("error_reporting", E_ALL);' >> $DRUPAL_ROOT/sites/default/settings.php
 
   # Download and install Drupal
   - drush dl drupal-7 -y
@@ -47,6 +46,8 @@ before_script:
   # Enable dependencies
   - drush en -y field_group, field_group_table, field_formatter_class, field_formatter_settings, ctools, date, devel,
               ds, link, entity, libraries, redirect, token uuid, jquery_update, views, webform
+
+  - echo 'ini_set("error_reporting", E_ALL);' >> $DRUPAL_ROOT/sites/default/settings.php
 
   # Run the drush server
   - drush runserver localhost:8080 &
