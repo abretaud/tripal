@@ -28,6 +28,7 @@ before_script:
   # Set additional environment variables
   - export PATH="$HOME/.config/composer/vendor/bin:$PATH"
   - export DRUPAL_ROOT="$(pwd)/drupal"
+  - echo 'ini_set("error_reporting", E_ALL);' >> $DRUPAL_ROOT/sites/default/settings.php
 
   # Download and install Drupal
   - drush dl drupal-7 -y
